@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <div>
-    <h1 className="brand">Dental Clinic</h1>
+    <Link to="/">
+      <h1 className="brand">Dental Clinic</h1>
+    </Link>
     <ul>
       <li>Treatments</li>
       <li>Appointment</li>
