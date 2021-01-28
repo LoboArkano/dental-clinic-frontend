@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { checkSession, postUser } from '../actions/index';
 
@@ -87,6 +87,9 @@ const Registration = props => {
           <button type="submit" onClick={handleSubmit}>Create Account</button>
         </div>
       </form>
+      <div>
+        <Link to="/login">I Have an Account</Link>
+      </div>
     </div>
   );
 };
