@@ -5,7 +5,7 @@ import {
   FETCH_DOCTORS_SUCCESS, FETCH_DOCTOR_SUCCESS,
   POST_USER_SUCCESS,
 } from './types';
-import { postUserApi } from '../api/api';
+import { postUserApi, createSessionApi } from '../api/api';
 
 export const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -58,6 +58,19 @@ export const postUser = (state, opt) => (
       .then(response => {
         const user = response;
         return dispatch(postUserSuccess(user));
+      })
+      .catch(error => dispatch(fetchFailure(error.message)));
+  }
+);
+
+export const createSession = (state, opt) => (
+  dispatch => {
+    dispatch(fetchRequest());
+    return createSessionApi(state, opt)
+      .then(response => {
+        console.log('response', response);
+        /* const user = response;
+        return dispatch(postUserSuccess(user)); */
       })
       .catch(error => dispatch(fetchFailure(error.message)));
   }
