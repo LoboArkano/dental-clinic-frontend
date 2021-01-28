@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { postUser } from '../actions/index';
+import { checkSession, createSession } from '../actions/index';
 
 const Registration = props => {
   const { error, loggedInStatus } = props;
@@ -11,6 +11,10 @@ const Registration = props => {
     password: '',
   });
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkSession('logged_in'));
+  }, []);
 
   const handleChange = useCallback(e => {
     const { name, value } = e.target;
@@ -22,7 +26,7 @@ const Registration = props => {
   });
 
   const handleSubmit = useCallback(e => {
-    dispatch(postUser(state, 'sessions'));
+    dispatch(createSession(state, 'sessions'));
     e.preventDefault();
   });
 
