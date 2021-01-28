@@ -1,8 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { postUser } from '../actions/index';
 
-const Registration = () => {
+const Registration = props => {
+  const { error, loggedInStatus } = props;
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -25,8 +28,19 @@ const Registration = () => {
     e.preventDefault();
   });
 
+  if (loggedInStatus) {
+    return <Redirect to="/treatments" />;
+  }
+
   return (
     <div>
+      {
+        error.length
+          ? (
+            <div>{error}</div>
+          )
+          : ''
+      }
       <form>
         <h4>CERATE A NEW ACCOUNT</h4>
         <div>
@@ -73,6 +87,18 @@ const Registration = () => {
   );
 };
 
+Registration.propTypes = {
+  error: PropTypes.string.isRequired,
+  loggedInStatus: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => {
+  const { user } = state;
+  const { error, loggedInStatus } = user;
+
+  return { error, loggedInStatus };
+};
+
 const mapDistpatchToProps = {};
 
-export default connect(null, mapDistpatchToProps)(Registration);
+export default connect(mapStateToProps, mapDistpatchToProps)(Registration);
