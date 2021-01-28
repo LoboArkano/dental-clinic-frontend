@@ -24,6 +24,12 @@ const INITIAL_STATE = {
     list: [],
     item: {},
   },
+  user: {
+    loading: false,
+    error: '',
+    loggedInStatus: false,
+    data: {},
+  },
 };
 
 const store = createStore(rootReducer, INITIAL_STATE, applyMiddleware(thunk));
