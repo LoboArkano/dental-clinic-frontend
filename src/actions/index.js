@@ -68,9 +68,8 @@ export const createSession = (state, opt) => (
     dispatch(fetchRequest());
     return createSessionApi(state, opt)
       .then(response => {
-        console.log('response', response);
-        /* const user = response;
-        return dispatch(postUserSuccess(user)); */
+        const user = response;
+        return dispatch(postUserSuccess(user));
       })
       .catch(error => dispatch(fetchFailure(error.message)));
   }

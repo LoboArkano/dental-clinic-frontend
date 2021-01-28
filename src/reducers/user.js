@@ -1,6 +1,6 @@
 import {
   FETCH_REQUEST, FETCH_FAILURE,
-  POST_USER_SUCCESS,
+  POST_USER_SUCCESS, CREATE_SESSION_SUCCESS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
