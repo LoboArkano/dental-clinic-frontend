@@ -29,7 +29,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         loggedInStatus: true,
-        data: action.payload,
+        data: action.payload.user,
         error: '',
       };
     default:
