@@ -27,3 +27,16 @@ export const createSessionApi = async (state, opt = '') => {
 
   return response.data;
 };
+
+export const checkSessionApi = async (opt = '') => {
+  const response = await axios.get(`${urlApi}${opt}`,
+    { withCredentials: true });
+  return response.data;
+};
+
+export const logoutApi = async (opt = '') => {
+  const response = await axios.delete(`${urlApi}${opt}`,
+    { withCredentials: true });
+
+  return response.data;
+};
