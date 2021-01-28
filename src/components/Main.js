@@ -1,12 +1,11 @@
 import React from 'react';
-import Login from '../containers/Login';
-import Registration from '../containers/Registration';
+import { Link } from 'react-router-dom';
 
 const Main = () => (
   <div>
     Main Page
-    <Registration />
-    <Login />
+    <Link to="/sign-up">Create Account</Link>
+    <Link to="/login">Login</Link>
   </div>
 );
 
