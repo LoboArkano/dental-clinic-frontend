@@ -1,6 +1,6 @@
 import {
   FETCH_REQUEST, FETCH_FAILURE,
-  POST_USER_SUCCESS, CREATE_SESSION_SUCCESS,
+  POST_USER_SUCCESS, CHECK_SESSION_SUCCESS, LOGOUT_SUCCESS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -31,6 +31,20 @@ const userReducer = (state = INITIAL_STATE, action) => {
         loggedInStatus: true,
         data: action.payload.user,
         error: '',
+      };
+    case CHECK_SESSION_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loggedInStatus: action.payload.logged_in,
+        data: {} || action.payload.user,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loggedInStatus: action.payload.logged_in,
+        data: {},
       };
     default:
       return state;
