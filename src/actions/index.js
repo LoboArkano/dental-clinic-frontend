@@ -9,6 +9,7 @@ import {
   postUserApi, createSessionApi,
   checkSessionApi, logoutApi,
 } from '../api/api';
+import getTreatmentListApi from '../api/treatment';
 
 export const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -63,6 +64,18 @@ export const logoutSuccess = status => ({
   type: LOGOUT_SUCCESS,
   payload: status,
 });
+
+export const fetchTreatments = opt => (
+  dispatch => {
+    dispatch(fetchRequest());
+    return getTreatmentListApi(opt)
+      .then(response => {
+        const treatments = response;
+        return dispatch(fetchTreatmentsSuccess(treatments));
+      })
+      .catch(error => dispatch(fetchFailure(error.message)));
+  }
+);
 
 export const postUser = (state, opt) => (
   dispatch => {
