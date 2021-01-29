@@ -10,6 +10,7 @@ import {
   checkSessionApi, logoutApi,
 } from '../api/api';
 import { getTreatmentListApi, getTreatmentApi } from '../api/treatment';
+import getDoctorListApi from '../api/doctor';
 
 export const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -84,6 +85,18 @@ export const fetchTreatment = (opt, id) => (
       .then(response => {
         const treatment = response;
         return dispatch(fetchTreatmentSuccess(treatment));
+      })
+      .catch(error => dispatch(fetchFailure(error.message)));
+  }
+);
+
+export const fetchDoctors = opt => (
+  dispatch => {
+    dispatch(fetchRequest());
+    return getDoctorListApi(opt)
+      .then(response => {
+        const doctors = response;
+        return dispatch(fetchDoctorsSuccess(doctors));
       })
       .catch(error => dispatch(fetchFailure(error.message)));
   }
