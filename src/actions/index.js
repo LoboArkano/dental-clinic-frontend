@@ -9,7 +9,7 @@ import {
   postUserApi, createSessionApi,
   checkSessionApi, logoutApi,
 } from '../api/api';
-import getTreatmentListApi from '../api/treatment';
+import { getTreatmentListApi, getTreatmentApi } from '../api/treatment';
 
 export const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -72,6 +72,18 @@ export const fetchTreatments = opt => (
       .then(response => {
         const treatments = response;
         return dispatch(fetchTreatmentsSuccess(treatments));
+      })
+      .catch(error => dispatch(fetchFailure(error.message)));
+  }
+);
+
+export const fetchTreatment = (opt, id) => (
+  dispatch => {
+    dispatch(fetchRequest());
+    return getTreatmentApi(opt, id)
+      .then(response => {
+        const treatment = response;
+        return dispatch(fetchTreatmentSuccess(treatment));
       })
       .catch(error => dispatch(fetchFailure(error.message)));
   }

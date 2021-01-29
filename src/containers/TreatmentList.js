@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { fetchTreatments, logout } from '../actions/index';
+import { Redirect, Link } from 'react-router-dom';
+import { fetchTreatments, logout, checkSession } from '../actions/index';
 import Error from '../components/Error';
 
 const TreatmentList = props => {
@@ -13,6 +13,7 @@ const TreatmentList = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(checkSession('logged_in'));
     dispatch(fetchTreatments('treatments'));
   }, []);
 
@@ -38,10 +39,10 @@ const TreatmentList = props => {
               <button type="button" onClick={handleLogout}>Logout</button>
               {
                 list.treatments.map(treatment => (
-                  <div key={treatment.name}>
+                  <Link to={`/treatment/${treatment.id}`} key={treatment.name}>
                     <h3>{treatment.name}</h3>
                     <p>{treatment.price}</p>
-                  </div>
+                  </Link>
                 ))
               }
             </>
@@ -55,9 +56,7 @@ TreatmentList.propTypes = {
   error: PropTypes.string.isRequired,
   loggedInStatus: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
-  list: PropTypes.arrayOf({
-    treatments: PropTypes.shape().isRequired,
-  }).isRequired,
+  list: PropTypes.arrayOf().isRequired,
 };
 
 const mapStateToProps = state => {

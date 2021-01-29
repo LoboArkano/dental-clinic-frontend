@@ -35,7 +35,7 @@ const treatmentReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        item: action.payload,
+        item: action.payload.treatment,
         error: '',
       };
     default:
