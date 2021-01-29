@@ -43,7 +43,7 @@ const Registration = props => {
           )
           : ''
       }
-      <form>
+      <form onSubmit={handleSubmit}>
         <h4>Login</h4>
         <div>
           <input
@@ -64,7 +64,7 @@ const Registration = props => {
             onChange={handleChange}
             required
           />
-          <button type="submit" onClick={handleSubmit}>Login</button>
+          <button type="submit">Login</button>
         </div>
       </form>
       <div>

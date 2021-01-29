@@ -28,7 +28,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        loggedInStatus: true,
+        loggedInStatus: action.payload.logged_in,
         data: action.payload.user,
         error: '',
       };

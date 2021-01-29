@@ -45,7 +45,7 @@ const Registration = props => {
           )
           : ''
       }
-      <form>
+      <form onSubmit={handleSubmit}>
         <h4>CERATE A NEW ACCOUNT</h4>
         <div>
           <input
@@ -84,7 +84,7 @@ const Registration = props => {
             onChange={handleChange}
             required
           />
-          <button type="submit" onClick={handleSubmit}>Create Account</button>
+          <button type="submit">Create Account</button>
         </div>
       </form>
       <div>
