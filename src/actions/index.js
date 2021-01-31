@@ -11,7 +11,7 @@ import {
 } from '../api/api';
 import { getTreatmentListApi, getTreatmentApi } from '../api/treatment';
 import getDoctorListApi from '../api/doctor';
-import postAppointmentApi from '../api/appointment';
+import { postAppointmentApi, getAppointmentListApi } from '../api/appointment';
 
 export const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -27,7 +27,7 @@ export const postAppointmentSuccess = appointments => ({
   payload: appointments,
 });
 
-export const fecthAppointmentSuccess = appointments => ({
+export const fetchAppointmentsSuccess = appointments => ({
   type: FETCH_APPOINTMENTS_SUCCESS,
   payload: appointments,
 });
@@ -79,6 +79,19 @@ export const postAppointment = (state, opt) => (
       .then(response => {
         const appointment = response;
         return dispatch(postAppointmentSuccess(appointment));
+      })
+      .catch(error => dispatch(fetchFailure(error.message)));
+  }
+);
+
+export const fetchAppointments = opt => (
+  dispatch => {
+    dispatch(fetchRequest());
+    return getAppointmentListApi(opt)
+      .then(response => {
+        const appointments = response;
+        console.log('appointments', appointments);
+        return dispatch(fetchAppointmentsSuccess(appointments));
       })
       .catch(error => dispatch(fetchFailure(error.message)));
   }

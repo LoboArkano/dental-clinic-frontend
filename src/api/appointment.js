@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const urlApi = 'http://localhost:3001/';
 
-const postAppointmentApi = async (state, opt = '') => {
+export const postAppointmentApi = async (state, opt = '') => {
   const datetime = `${state.date} ${state.time}`;
   const response = await axios.post(`${urlApi}${opt}`, {
     appointment: {
@@ -17,4 +17,8 @@ const postAppointmentApi = async (state, opt = '') => {
   return response.data;
 };
 
-export default postAppointmentApi;
+export const getAppointmentListApi = async (opt = '') => {
+  const response = await axios.get(`${urlApi}${opt}`, { withCredentials: true });
+
+  return response.data;
+};
