@@ -4,6 +4,7 @@ import { connect, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { fetchTreatments, logout, checkSession } from '../actions/index';
 import Error from '../components/Error';
+import '../assets/stylesheets/treatmentList.css';
 
 const TreatmentList = props => {
   const {
@@ -14,7 +15,9 @@ const TreatmentList = props => {
 
   useEffect(() => {
     dispatch(checkSession('logged_in'));
-    dispatch(fetchTreatments('treatments'));
+    if (loggedInStatus) {
+      dispatch(fetchTreatments('treatments'));
+    }
   }, []);
 
   const handleLogout = useCallback(() => {
@@ -30,25 +33,27 @@ const TreatmentList = props => {
   }
 
   return (
-    <>
+    <div className="d-flex f-dir-col w-100">
       {
         loading
           ? <h3>Loading</h3>
           : (
             <>
-              <button type="button" onClick={handleLogout}>Logout</button>
-              {
-                list.treatments.map(treatment => (
-                  <Link to={`/treatment/${treatment.id}`} key={treatment.name}>
-                    <h3>{treatment.name}</h3>
-                    <p>{treatment.price}</p>
-                  </Link>
-                ))
-              }
+              <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
+              <div className="treatment-list d-flex f-wrap justify-cont-sa w-100">
+                {
+                  list.treatments.map(treatment => (
+                    <Link to={`/treatment/${treatment.id}`} key={treatment.name} className="treatment-card deco">
+                      <h3 className="treatment-name">{treatment.name}</h3>
+                      <p>{`${treatment.price} USD`}</p>
+                    </Link>
+                  ))
+                }
+              </div>
             </>
           )
       }
-    </>
+    </div>
   );
 };
 
@@ -56,7 +61,9 @@ TreatmentList.propTypes = {
   error: PropTypes.string.isRequired,
   loggedInStatus: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
-  list: PropTypes.arrayOf().isRequired,
+  list: PropTypes.shape({
+    treatments: PropTypes.arrayOf(PropTypes.shape()),
+  }).isRequired,
 };
 
 const mapStateToProps = state => {

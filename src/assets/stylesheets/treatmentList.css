@@ -131,32 +131,23 @@
   }
 }
 
-.main {
-  background-image: url("../images/main.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.treatment-list {
+  overflow: auto;
 }
 
-.main .session {
-  width: 300px;
-  margin-right: 80px;
-  margin-bottom: 40px;
-}
-
-.main .session .session-btn {
-  padding: 10px 20px;
-  border: 3px solid #a09c9c;
-  border-radius: 8px;
-  background-color: #f7f2f2;
-  color: #707070;
-  font-size: 22px;
+.treatment-list .treatment-card {
+  margin-bottom: 16px;
+  width: 30%;
+  padding: 20px;
+  border: 2.2px solid #97bf0f;
+  border-radius: 5px;
+  color: #1f1d1d;
   font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 18px;
   font-weight: 400;
 }
 
-.main .session .session-btn:hover {
-  border-color: #97bf0f;
-  color: #97bf0f;
+.treatment-list .treatment-card .treatment-name {
+  font-weight: 700;
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=treatmentList.css.map */

@@ -10,6 +10,10 @@
   display: flex;
 }
 
+.f-wrap {
+  flex-wrap: wrap;
+}
+
 .f-dir-col {
   flex-direction: column;
 }
@@ -44,6 +48,23 @@
 
 .deco {
   text-decoration: none;
+}
+
+.logout-btn {
+  cursor: pointer;
+  padding: 5.5px;
+  margin: 13px 13px 13px 0;
+  align-self: flex-end;
+  border: 2px solid $darkGray;
+  border-radius: 5px;
+  background-color: $lightGray;
+  color: $darkGray;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+
+  &:hover {
+    background-color: $white;
+  }
 }
 
 .loading {

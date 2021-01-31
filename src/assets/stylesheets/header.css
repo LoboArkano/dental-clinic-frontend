@@ -12,6 +12,11 @@
   display: flex;
 }
 
+.f-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .f-dir-col {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -56,6 +61,24 @@
 
 .deco {
   text-decoration: none;
+}
+
+.logout-btn {
+  cursor: pointer;
+  padding: 5.5px;
+  margin: 13px 13px 13px 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: 2px solid #707070;
+  border-radius: 5px;
+  background-color: #cecccc;
+  color: #707070;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.logout-btn:hover {
+  background-color: #f7f2f2;
 }
 
 .loading {
@@ -110,6 +133,7 @@
 
 .header-container {
   width: 15%;
+  min-width: 295px;
   padding: 12px 0 0 12px;
   border-right: 1px solid #cecccc;
 }

@@ -1,0 +1,21 @@
+@import 'variables', 'generic';
+
+.treatment-list {
+  overflow: auto;
+
+  .treatment-card {
+    margin-bottom: 16px;
+    width: 30%;
+    padding: 20px;
+    border: 2.2px solid $green;
+    border-radius: 5px;
+    color: $black;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+
+    .treatment-name {
+      font-weight: 700;
+    }
+  }
+}
