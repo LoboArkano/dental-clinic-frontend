@@ -108,47 +108,32 @@
   }
 }
 
-.header-container {
-  width: 15%;
-  padding: 12px 0 0 12px;
-  border-right: 1px solid #cecccc;
+.main {
+  background-image: url("../images/main.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-.header-container .nav {
-  height: 245px;
+.main .session {
+  width: 300px;
+  margin-right: 80px;
+  margin-bottom: 40px;
 }
 
-.header-container .nav .brand {
-  padding: 10px 0 0 10px;
-  font-family: 'Mukta', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #1f1d1d;
-}
-
-.header-container .nav .nav-item {
-  padding: 10px 15px;
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #1f1d1d;
-}
-
-.header-container .nav .nav-item:hover {
-  background-color: #97bf0f;
-  color: #f7f2f2;
-}
-
-.header-container .social {
-  padding: 5px 50px 15px 0;
-}
-
-.header-container .social .profile-link {
-  font-size: 20px;
+.main .session .session-btn {
+  padding: 10px 20px;
+  border: 3px solid #a09c9c;
+  border-radius: 8px;
+  background-color: #f7f2f2;
   color: #707070;
+  font-size: 22px;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
-.header-container .social .profile-link:hover {
-  color: #cecccc;
+.main .session .session-btn:hover {
+  border-color: #97bf0f;
+  color: #97bf0f;
 }
-/*# sourceMappingURL=header.css.map */
+/*# sourceMappingURL=main.css.map */

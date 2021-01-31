@@ -14,11 +14,19 @@
   flex-direction: column;
 }
 
-.justiy-cont-sb {
+.align-i-fe {
+  align-items: flex-end;
+}
+
+.justify-cont-fe {
+  justify-content: flex-end;
+}
+
+.justify-cont-sb {
   justify-content: space-between;
 }
 
-.justiy-cont-sa {
+.justify-cont-sa {
   justify-content: space-around;
 }
 

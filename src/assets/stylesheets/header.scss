@@ -14,7 +14,6 @@
       font-weight: 700;
       font-size: 40px;
       color: $black;
-      margin-bottom: 120px;
     }
 
     .nav-item {
@@ -25,7 +24,7 @@
       color: $black;
 
       &:hover {
-        background-color: #97bf0f;
+        background-color: $green;
         color: $white;
       }
     }
