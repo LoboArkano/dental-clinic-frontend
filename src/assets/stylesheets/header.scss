@@ -1,0 +1,46 @@
+@import 'variables', 'generic';
+
+.header-container {
+  width: 15%;
+  padding: 12px 0 0 12px;
+  border-right: 1px solid $lightGray;
+
+  .nav {
+    height: 245px;
+
+    .brand {
+      padding: 10px 0 0 10px;
+      font-family: 'Mukta', Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      color: $black;
+      margin-bottom: 120px;
+    }
+
+    .nav-item {
+      padding: 10px 15px;
+      font-family: 'Lato', Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: $black;
+
+      &:hover {
+        background-color: #97bf0f;
+        color: $white;
+      }
+    }
+  }
+
+  .social {
+    padding: 5px 50px 15px 0;
+
+    .profile-link {
+      font-size: 20px;
+      color: $darkGray;
+
+      &:hover {
+        color: $lightGray;
+      }
+    }
+  }
+}

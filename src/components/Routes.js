@@ -12,17 +12,19 @@ import Error from './Error';
 
 const Routes = () => (
   <BrowserRouter>
-    <Header />
-    <Switch>
-      <Route path="/" component={Main} exact />
-      <Route path="/login" component={Login} exact />
-      <Route path="/sign-up" component={Registration} exact />
-      <Route path="/treatments" component={CTreatmentList} exact />
-      <Route path="/treatment/:id" component={CTreatment} exact />
-      <Route path="/appointments" component={CAppointmentList} exact />
-      <Route path="/appointment-form" component={AppointmentForm} exact />
-      <Route component={Error} />
-    </Switch>
+    <div className="d-flex w-100 vh-100">
+      <Header />
+      <Switch>
+        <Route path="/" component={Main} exact />
+        <Route path="/login" component={Login} exact />
+        <Route path="/sign-up" component={Registration} exact />
+        <Route path="/treatments" component={CTreatmentList} exact />
+        <Route path="/treatment/:id" component={CTreatment} exact />
+        <Route path="/appointments" component={CAppointmentList} exact />
+        <Route path="/appointment-form" component={AppointmentForm} exact />
+        <Route component={Error} />
+      </Switch>
+    </div>
   </BrowserRouter>
 );
 

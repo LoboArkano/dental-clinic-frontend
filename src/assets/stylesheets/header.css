@@ -1,0 +1,143 @@
+.w-100 {
+  width: 100%;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.f-dir-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.justiy-cont-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.justiy-cont-sa {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.d-none {
+  display: none;
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.lower-case {
+  text-transform: lowercase;
+}
+
+.deco {
+  text-decoration: none;
+}
+
+.loading {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.loading .loading-img {
+  margin-top: 55px;
+  margin-bottom: 35px;
+  height: 200px;
+  width: 200px;
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
+.loading .text {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
+
+.show {
+  -webkit-animation: show 0.5s linear;
+          animation: show 0.5s linear;
+}
+
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.header-container {
+  width: 15%;
+  padding: 12px 0 0 12px;
+  border-right: 1px solid #cecccc;
+}
+
+.header-container .nav {
+  height: 245px;
+}
+
+.header-container .nav .brand {
+  padding: 10px 0 0 10px;
+  font-family: 'Mukta', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #1f1d1d;
+  margin-bottom: 120px;
+}
+
+.header-container .nav .nav-item {
+  padding: 10px 15px;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1f1d1d;
+}
+
+.header-container .nav .nav-item:hover {
+  background-color: #97bf0f;
+  color: #f7f2f2;
+}
+
+.header-container .social {
+  padding: 5px 50px 15px 0;
+}
+
+.header-container .social .profile-link {
+  font-size: 20px;
+  color: #707070;
+}
+
+.header-container .social .profile-link:hover {
+  color: #cecccc;
+}
+/*# sourceMappingURL=header.css.map */

@@ -5,6 +5,8 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import App from './components/App';
 import rootReducer from './reducers';
+import './assets/stylesheets/reset.css';
+import './assets/stylesheets/index.css';
 
 const INITIAL_STATE = {
   appointments: {
