@@ -1,6 +1,6 @@
 import {
   FETCH_REQUEST, FETCH_FAILURE,
-  FETCH_APPOINTMENTS_SUCCESS, FETCH_APPOINTMENT_SUCCESS,
+  POST_APPOINTMENT_SUCCESS, FETCH_APPOINTMENTS_SUCCESS, FETCH_APPOINTMENT_SUCCESS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -22,6 +22,13 @@ const appointmentReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
+        error: action.payload,
+      };
+    case POST_APPOINTMENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        item: action.payload.appointment,
         error: action.payload,
       };
     case FETCH_APPOINTMENTS_SUCCESS:

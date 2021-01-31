@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { fetchTreatment, logout, checkSession } from '../actions/index';
 import Error from '../components/Error';
 
@@ -42,6 +42,9 @@ const Treatment = props => {
                 <p>{item.price}</p>
                 <p>{item.desc}</p>
               </div>
+              <Link to="/appointment-form">
+                Make an Appointment
+              </Link>
             </>
           )
       }
