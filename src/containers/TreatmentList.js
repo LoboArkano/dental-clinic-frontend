@@ -33,12 +33,12 @@ const TreatmentList = props => {
   }
 
   return (
-    <div className="d-flex f-dir-col w-100">
+    <div className="w-85">
       {
         loading
-          ? <h3>Loading</h3>
+          ? <></>
           : (
-            <>
+            <div className="d-flex f-dir-col w-100 show">
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
               <div className="treatment-list d-flex f-wrap justify-cont-sa w-100">
                 {
@@ -50,7 +50,7 @@ const TreatmentList = props => {
                   ))
                 }
               </div>
-            </>
+            </div>
           )
       }
     </div>

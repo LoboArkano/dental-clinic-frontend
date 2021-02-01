@@ -152,6 +152,7 @@
 }
 
 .treatment-list .treatment-card .treatment-name {
+  margin-bottom: 15px;
   font-weight: 700;
 }
 /*# sourceMappingURL=treatmentList.css.map */
