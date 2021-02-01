@@ -6,6 +6,12 @@
   width: 85%;
 }
 
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .vh-100 {
   height: 100vh;
 }
@@ -32,6 +38,18 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.align-i-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.justify-cont-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .justify-cont-fe {
@@ -85,31 +103,23 @@
   background-color: #f7f2f2;
 }
 
-.loading {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.loading .loading-img {
-  margin-top: 55px;
-  margin-bottom: 35px;
-  height: 200px;
-  width: 200px;
-  -webkit-animation: spin 2s infinite linear;
-          animation: spin 2s infinite linear;
-}
-
-.loading .text {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-size: 40px;
+.select {
+  margin-bottom: 20px;
+  width: 75%;
+  padding: 6px 10px 9px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #707070;
+  background-color: #f7f2f2;
+  border: 1px solid #a09c9c;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("../images/down-arrow.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 90%;
 }
 
 .show {

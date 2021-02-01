@@ -145,48 +145,39 @@
   }
 }
 
-.header-container {
-  width: 15%;
-  min-width: 195px;
-  padding: 12px 0 0 12px;
-  border-right: 1px solid #cecccc;
+.form-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
 }
 
-.header-container .nav {
-  height: 245px;
-}
-
-.header-container .nav .brand {
-  padding: 10px 0 0 10px;
-  font-family: 'Mukta', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #1f1d1d;
-}
-
-.header-container .nav .nav-item {
-  padding: 10px 15px;
+.appoint-form {
+  width: 70%;
+  padding: 27px 17px;
+  border: 1.8px solid #97bf0f;
+  border-radius: 5px;
   font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #1f1d1d;
 }
 
-.header-container .nav .nav-item:hover {
-  background-color: #97bf0f;
-  color: #f7f2f2;
-}
-
-.header-container .social {
-  padding: 5px 50px 15px 0;
-}
-
-.header-container .social .profile-link {
+.appoint-form .datetime {
+  margin-bottom: 30px;
+  width: 75%;
   font-size: 20px;
   color: #707070;
 }
 
-.header-container .social .profile-link:hover {
-  color: #cecccc;
+.appoint-form .datetime .datetime-input {
+  height: 30px;
+  margin-left: 13px;
+  font-size: 15px;
 }
-/*# sourceMappingURL=header.css.map */
+
+.appoint-form .submit-btn {
+  cursor: pointer;
+  padding: 5px 12px;
+  border: 1.8px solid #97bf0f;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+/*# sourceMappingURL=appointment-form.css.map */

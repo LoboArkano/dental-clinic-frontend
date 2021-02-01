@@ -6,6 +6,10 @@
   width: 85%;
 }
 
+.w-max {
+  width: max-content;
+}
+
 .vh-100 {
   height: 100vh;
 }
@@ -24,6 +28,14 @@
 
 .align-i-fe {
   align-items: flex-end;
+}
+
+.align-i-c {
+  align-items: center;
+}
+
+.justify-cont-c {
+  justify-content: center;
 }
 
 .justify-cont-fe {
@@ -71,23 +83,21 @@
   }
 }
 
-.loading {
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  .loading-img {
-    margin-top: 55px;
-    margin-bottom: 35px;
-    height: 200px;
-    width: 200px;
-    animation: spin 2s infinite linear;
-  }
-
-  .text {
-    font-family: 'Lato', Arial, Helvetica, sans-serif;
-    font-size: 40px;
-  }
+.select {
+  margin-bottom: 20px;
+  width: 75%;
+  padding: 6px 10px 9px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: $darkGray;
+  background-color: $white;
+  border: 1px solid $gray;
+  appearance: none;
+  background-image: url("../images/down-arrow.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 90%;
 }
 
 .show {

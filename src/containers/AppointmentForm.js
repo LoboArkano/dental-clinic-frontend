@@ -6,6 +6,7 @@ import {
   logout, checkSession, fetchTreatments, fetchDoctors, postAppointment,
 } from '../actions/index';
 import Error from '../components/Error';
+import '../assets/stylesheets/appointment-form.css';
 
 const AppointmentForm = props => {
   const {
@@ -40,11 +41,7 @@ const AppointmentForm = props => {
   }, [state]);
 
   const handleSubmit = useCallback(() => {
-    dispatch(postAppointment(state, 'appointments'))
-      .then(() => {
-        console.log('redirect');
-        return <Redirect to="/" />;
-      });
+    dispatch(postAppointment(state, 'appointments'));
   });
 
   if (error.length) {
@@ -56,61 +53,69 @@ const AppointmentForm = props => {
   }
 
   return (
-    <>
+    <div className="w-85">
       {
         treatments.loading || doctors.loading
-          ? <h3>Loading</h3>
+          ? <></>
           : (
-            <>
-              <button type="button" onClick={handleLogout}>Logout</button>
-              <div>
-                <p>Complete the form</p>
-                <form onSubmit={handleSubmit}>
-                  <div>
-                    <select
-                      name="treatmentID"
-                      onChange={handleChange}
-                      required
-                    >
-                      <option key="none" value="">Treatments</option>
-                      {
-                        treatments.list.treatments.map(treatment => (
-                          <option
-                            key={treatment.id}
-                            value={treatment.id}
-                          >
-                            { treatment.name }
-                          </option>
-                        ))
-                      }
-                    </select>
-                    <select
-                      name="doctorID"
-                      onChange={handleChange}
-                      required
-                    >
-                      <option key="none" value="">Doctors</option>
-                      {
-                        doctors.list.doctors.map(doctor => (
-                          <option
-                            key={doctor.id}
-                            value={doctor.id}
-                          >
-                            { doctor.name }
-                          </option>
-                        ))
-                      }
-                    </select>
-                    <input type="date" name="date" onChange={handleChange} value={state.date} required />
-                    <input type="time" name="time" onChange={handleChange} value={state.time} required />
-                    <button type="submit">Submit</button>
+            <div className="d-flex f-dir-col w-100 show">
+              <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
+              <div className="d-flex align-i-c f-dir-col">
+                <p className="form-title">Make Your Appointment</p>
+                <form onSubmit={handleSubmit} className="appoint-form d-flex f-dir-col align-i-c">
+                  <select
+                    name="treatmentID"
+                    className="select"
+                    onChange={handleChange}
+                    required
+                  >
+                    <option key="none" value="">Treatments</option>
+                    {
+                      treatments.list.treatments.map(treatment => (
+                        <option
+                          key={treatment.id}
+                          value={treatment.id}
+                        >
+                          { treatment.name }
+                        </option>
+                      ))
+                    }
+                  </select>
+                  <select
+                    name="doctorID"
+                    className="select"
+                    onChange={handleChange}
+                    required
+                  >
+                    <option key="none" value="">Doctors</option>
+                    {
+                      doctors.list.doctors.map(doctor => (
+                        <option
+                          key={doctor.id}
+                          value={doctor.id}
+                        >
+                          { doctor.name }
+                        </option>
+                      ))
+                    }
+                  </select>
+                  <div className="datetime d-flex justify-cont-sa">
+                    <label htmlFor="date">
+                      Date:
+                      <input type="date" name="date" className="datetime-input" onChange={handleChange} value={state.date} required />
+                    </label>
+                    <label htmlFor="time">
+                      Time:
+                      <input type="time" name="time" className="datetime-input" onChange={handleChange} value={state.time} required />
+                    </label>
                   </div>
+                  <button type="submit" className="submit-btn">Submit</button>
                 </form>
               </div>
-            </>
+            </div>
           )
       }
-    </>
+    </div>
   );
 };
 
