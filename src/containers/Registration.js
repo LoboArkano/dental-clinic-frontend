@@ -3,9 +3,10 @@ import { connect, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { checkSession, postUser } from '../actions/index';
+import '../assets/stylesheets/sign-up.css';
 
 const Registration = props => {
-  const { error, loggedInStatus } = props;
+  const { error, loggedInStatus, loading } = props;
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -37,59 +38,68 @@ const Registration = props => {
   }
 
   return (
-    <div>
+    <div className="w-85">
       {
-        error.length
-          ? (
-            <div>{error}</div>
+        loading
+          ? <></>
+          : (
+            <div className="d-flex align-i-c f-dir-col show">
+              {
+                error.length
+                  ? (
+                    <div>{error}</div>
+                  )
+                  : ''
+              }
+              <form className="sign-up-form d-flex f-dir-col align-i-c" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="input"
+                  placeholder="Username"
+                  value={state.name}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="input"
+                  placeholder="Email"
+                  value={state.email}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="input"
+                  placeholder="Password"
+                  value={state.password}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="password"
+                  id="password_confirmation"
+                  name="password_confirmation"
+                  className="input"
+                  placeholder="Password Confirmation"
+                  value={state.password_confirmation}
+                  onChange={handleChange}
+                  required
+                />
+                <button type="submit" className="submit-btn">Create Account</button>
+              </form>
+              <div className="session-option">
+                <Link to="/login" className="session-link deco">I Have an Account</Link>
+              </div>
+            </div>
           )
-          : ''
       }
-      <form onSubmit={handleSubmit}>
-        <h4>CERATE A NEW ACCOUNT</h4>
-        <div>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Username"
-            value={state.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value={state.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            value={state.password}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            id="password_confirmation"
-            name="password_confirmation"
-            placeholder="Password Confirmation"
-            value={state.password_confirmation}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Create Account</button>
-        </div>
-      </form>
-      <div>
-        <Link to="/login">I Have an Account</Link>
-      </div>
     </div>
   );
 };
@@ -97,13 +107,14 @@ const Registration = props => {
 Registration.propTypes = {
   error: PropTypes.string.isRequired,
   loggedInStatus: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => {
   const { user } = state;
-  const { error, loggedInStatus } = user;
+  const { error, loggedInStatus, loading } = user;
 
-  return { error, loggedInStatus };
+  return { error, loggedInStatus, loading };
 };
 
 const mapDistpatchToProps = {};

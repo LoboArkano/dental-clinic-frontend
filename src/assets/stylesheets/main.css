@@ -132,6 +132,32 @@
   background-position: 90%;
 }
 
+.input {
+  margin-bottom: 22px;
+  padding: 8px;
+  width: 80%;
+  font-size: 19px;
+}
+
+.submit-btn {
+  cursor: pointer;
+  padding: 5px 12px;
+  border: 1.8px solid #97bf0f;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.session-option {
+  margin-top: 40px;
+}
+
+.session-option .session-link {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: #97bf0f;
+}
+
 .show {
   -webkit-animation: show 0.5s linear;
           animation: show 0.5s linear;

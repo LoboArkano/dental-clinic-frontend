@@ -181,48 +181,12 @@
   }
 }
 
-.header-container {
-  width: 15%;
-  min-width: 195px;
-  padding: 12px 0 0 12px;
-  border-right: 1px solid #cecccc;
-}
-
-.header-container .nav {
-  height: 245px;
-}
-
-.header-container .nav .brand {
-  padding: 10px 0 0 10px;
-  font-family: 'Mukta', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #8bdaf9;
-}
-
-.header-container .nav .nav-item {
-  padding: 10px 15px;
+.sign-up-form {
+  margin-top: 40px;
+  width: 70%;
+  padding: 27px 17px;
+  border: 1.8px solid #c2f320d3;
+  border-radius: 5px;
   font-family: 'Lato', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #1f1d1d;
 }
-
-.header-container .nav .nav-item:hover {
-  background-color: #97bf0f;
-  color: #f7f2f2;
-}
-
-.header-container .social {
-  padding: 5px 50px 15px 0;
-}
-
-.header-container .social .profile-link {
-  font-size: 20px;
-  color: #707070;
-}
-
-.header-container .social .profile-link:hover {
-  color: #cecccc;
-}
-/*# sourceMappingURL=header.css.map */
+/*# sourceMappingURL=sign-up.css.map */
