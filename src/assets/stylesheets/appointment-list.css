@@ -155,48 +155,23 @@
   }
 }
 
-.header-container {
-  width: 15%;
-  min-width: 195px;
-  padding: 12px 0 0 12px;
-  border-right: 1px solid #cecccc;
+.appoint-list {
+  margin-bottom: 10px;
+  overflow-y: auto;
+  height: 100%;
 }
 
-.header-container .nav {
-  height: 245px;
-}
-
-.header-container .nav .brand {
-  padding: 10px 0 0 10px;
-  font-family: 'Mukta', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #1f1d1d;
-}
-
-.header-container .nav .nav-item {
-  padding: 10px 15px;
+.appoint-list .appoint-card {
+  margin: 24px 24px 12px 24px;
+  padding: 20px;
+  border: 2px solid #97bf0f;
   font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.appoint-list .appoint-card .appoint-no {
   font-weight: 700;
-  font-size: 20px;
-  color: #1f1d1d;
 }
-
-.header-container .nav .nav-item:hover {
-  background-color: #97bf0f;
-  color: #f7f2f2;
-}
-
-.header-container .social {
-  padding: 5px 50px 15px 0;
-}
-
-.header-container .social .profile-link {
-  font-size: 20px;
-  color: #707070;
-}
-
-.header-container .social .profile-link:hover {
-  color: #cecccc;
-}
-/*# sourceMappingURL=header.css.map */
+/*# sourceMappingURL=appointment-list.css.map */

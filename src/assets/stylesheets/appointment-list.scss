@@ -1,0 +1,21 @@
+@import 'variables', 'generic';
+
+.appoint-list {
+  margin-bottom: 10px;
+  overflow-y: auto;
+  height: 100%;
+
+  .appoint-card {
+    margin: 24px 24px 12px 24px;
+    padding: 20px;
+    border: 2px solid $green;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+
+    .appoint-no {
+      font-weight: 700;
+    }
+  }
+}
