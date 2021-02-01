@@ -33,17 +33,17 @@ const TreatmentList = props => {
   }
 
   return (
-    <div className="w-85">
+    <div className="w-85 vh-100">
       {
         loading
           ? <></>
           : (
-            <div className="d-flex f-dir-col w-100 show">
+            <div className="d-flex f-dir-col w-100 h-100 show">
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
               <div className="treatment-list d-flex f-wrap justify-cont-sa w-100">
                 {
                   list.treatments.map(treatment => (
-                    <Link to={`/treatment/${treatment.id}`} key={treatment.name} className="treatment-card deco">
+                    <Link to={`/treatment/${treatment.id}`} key={treatment.name} className="treatment-card h-max deco">
                       <h3 className="treatment-name">{treatment.name}</h3>
                       <p>{`${treatment.price} USD`}</p>
                     </Link>
