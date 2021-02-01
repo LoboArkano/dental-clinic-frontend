@@ -14,6 +14,7 @@ const INITIAL_STATE = {
     error: '',
     list: [],
     item: {},
+    submitForm: false,
   },
   doctors: {
     loading: false,

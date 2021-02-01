@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 import {
-  logout, checkSession, fetchTreatments, fetchDoctors, postAppointment,
+  logout, checkSession, fetchTreatments, fetchDoctors, postAppointment, submitFomReset,
 } from '../actions/index';
+import AppointmentList from './AppointmentList';
 import Error from '../components/Error';
 import '../assets/stylesheets/appointment-form.css';
 
 const AppointmentForm = props => {
   const {
-    error, loggedInStatus, treatments, doctors,
+    error, loggedInStatus, treatments, doctors, appointments,
   } = props;
   const dispatch = useDispatch();
 
@@ -27,8 +28,9 @@ const AppointmentForm = props => {
     dispatch(fetchDoctors('/doctors'));
   }, []);
 
-  const handleLogout = useCallback(() => {
+  const handleLogout = useCallback(e => {
     dispatch(logout('logout'));
+    e.preventDefault();
   });
 
   const handleChange = useCallback(e => {
@@ -42,6 +44,7 @@ const AppointmentForm = props => {
 
   const handleSubmit = useCallback(() => {
     dispatch(postAppointment(state, 'appointments'));
+    return <AppointmentList />;
   });
 
   if (error.length) {
@@ -50,6 +53,11 @@ const AppointmentForm = props => {
 
   if (!loggedInStatus) {
     return <Redirect to="/login" />;
+  }
+
+  if (appointments.submitForm) {
+    dispatch(submitFomReset());
+    return <Redirect to="/appointments" />;
   }
 
   return (
@@ -124,14 +132,17 @@ AppointmentForm.propTypes = {
   loggedInStatus: PropTypes.bool.isRequired,
   treatments: PropTypes.shape().isRequired,
   doctors: PropTypes.shape().isRequired,
+  appointments: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = state => {
-  const { user, treatments, doctors } = state;
+  const {
+    user, treatments, doctors, appointments,
+  } = state;
   const { error, loggedInStatus } = user;
 
   return {
-    error, loggedInStatus, treatments, doctors,
+    error, loggedInStatus, treatments, doctors, appointments,
   };
 };
 

@@ -1,6 +1,6 @@
 import {
   FETCH_REQUEST, FETCH_FAILURE,
-  POST_APPOINTMENT_SUCCESS, FETCH_APPOINTMENTS_SUCCESS, FETCH_APPOINTMENT_SUCCESS,
+  POST_APPOINTMENT_SUCCESS, FETCH_APPOINTMENTS_SUCCESS, FETCH_APPOINTMENT_SUCCESS, SUBMITFORM_RESET,
   FETCH_TREATMENTS_SUCCESS, FETCH_TREATMENT_SUCCESS,
   FETCH_DOCTORS_SUCCESS, FETCH_DOCTOR_SUCCESS,
   POST_USER_SUCCESS, CHECK_SESSION_SUCCESS, LOGOUT_SUCCESS,
@@ -20,6 +20,10 @@ export const fetchRequest = () => ({
 export const fetchFailure = error => ({
   type: FETCH_FAILURE,
   payload: error,
+});
+
+export const submitFomReset = () => ({
+  type: SUBMITFORM_RESET,
 });
 
 export const postAppointmentSuccess = appointments => ({
@@ -90,7 +94,6 @@ export const fetchAppointments = opt => (
     return getAppointmentListApi(opt)
       .then(response => {
         const appointments = response;
-        console.log('appointments', appointments);
         return dispatch(fetchAppointmentsSuccess(appointments));
       })
       .catch(error => dispatch(fetchFailure(error.message)));

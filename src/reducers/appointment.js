@@ -1,6 +1,7 @@
 import {
   FETCH_REQUEST, FETCH_FAILURE,
   POST_APPOINTMENT_SUCCESS, FETCH_APPOINTMENTS_SUCCESS, FETCH_APPOINTMENT_SUCCESS,
+  SUBMITFORM_RESET,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -8,6 +9,7 @@ const INITIAL_STATE = {
   error: '',
   list: [],
   item: {},
+  submitForm: false,
 };
 
 const appointmentReducer = (state = INITIAL_STATE, action) => {
@@ -30,6 +32,7 @@ const appointmentReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         item: action.payload.appointment,
         error: action.payload,
+        submitForm: true,
       };
     case FETCH_APPOINTMENTS_SUCCESS:
       return {
@@ -44,6 +47,11 @@ const appointmentReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         item: action.payload,
         error: '',
+      };
+    case SUBMITFORM_RESET:
+      return {
+        ...state,
+        submitForm: false,
       };
     default:
       return state;
