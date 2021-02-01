@@ -4,6 +4,7 @@ import { connect, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { fetchTreatment, logout, checkSession } from '../actions/index';
 import Error from '../components/Error';
+import '../assets/stylesheets/treatment.css';
 
 const Treatment = props => {
   const {
@@ -30,25 +31,25 @@ const Treatment = props => {
   }
 
   return (
-    <>
+    <div className="w-85">
       {
         loading
-          ? <h3>Loading</h3>
+          ? <></>
           : (
-            <>
-              <button type="button" onClick={handleLogout}>Logout</button>
-              <div key={item.name}>
-                <h3>{item.name}</h3>
-                <p>{item.price}</p>
-                <p>{item.desc}</p>
+            <div className="d-flex f-dir-col w-100 show">
+              <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
+              <div key={item.name} className="treatment w-100">
+                <h3 className="treat-name">{`Treatment: ${item.name}`}</h3>
+                <p className="treat-price">{`Price: ${item.price}`}</p>
+                <p className="treat-desc">{`${item.desc}`}</p>
+                <Link to="/appointment-form" className="appointment-link deco">
+                  Make an Appointment
+                </Link>
               </div>
-              <Link to="/appointment-form">
-                Make an Appointment
-              </Link>
-            </>
+            </div>
           )
       }
-    </>
+    </div>
   );
 };
 
