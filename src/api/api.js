@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const urlApi = 'http://localhost:3001/';
+import urlApi from './urlApi';
 
 export const postUserApi = async (state, opt = '') => {
   const response = await axios.post(`${urlApi}${opt}`, {

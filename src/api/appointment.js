@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const urlApi = 'http://localhost:3001/';
+import urlApi from './urlApi';
 
 export const postAppointmentApi = async (state, opt = '') => {
   const datetime = `${state.date} ${state.time}`;

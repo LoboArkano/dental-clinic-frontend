@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const urlApi = 'http://localhost:3001/';
+import urlApi from './urlApi';
 
 export const getTreatmentListApi = async (opt = '') => {
   const response = await axios.get(`${urlApi}${opt}`, { withCredentials: true });
