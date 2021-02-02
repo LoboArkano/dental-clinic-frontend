@@ -1,5 +1,6 @@
 import axios from 'axios';
 import urlApi from './urlApi';
+import 'regenerator-runtime/runtime';
 
 export const getTreatmentListApi = async (opt = '') => {
   const response = await axios.get(`${urlApi}${opt}`, { withCredentials: true });

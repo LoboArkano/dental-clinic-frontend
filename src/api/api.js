@@ -1,5 +1,6 @@
 import axios from 'axios';
 import urlApi from './urlApi';
+import 'regenerator-runtime/runtime';
 
 export const postUserApi = async (state, opt = '') => {
   const response = await axios.post(`${urlApi}${opt}`, {

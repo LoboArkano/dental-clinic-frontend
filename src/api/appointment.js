@@ -1,5 +1,6 @@
 import axios from 'axios';
 import urlApi from './urlApi';
+import 'regenerator-runtime/runtime';
 
 export const postAppointmentApi = async (state, opt = '') => {
   const datetime = `${state.date} ${state.time}`;
