@@ -21,7 +21,7 @@ describe('Test for a single monster api request', () => {
         expect(actions[0].type).toBe('FETCH_REQUEST');
         expect(actions[1].type).toBe('FETCH_TREATMENT_SUCCESS');
         expect(actions[1].payload).toEqual(treatmentTestData);
-        expect(actions[1].payload[0].treatment.name).toEqual('Implants');
+        expect(actions[1].payload.treatment.name).toEqual('Implants');
       });
   });
 
@@ -35,7 +35,7 @@ describe('Test for a single monster api request', () => {
         const actions = store.getActions();
 
         expect(actions[0].type).toBe('FETCH_REQUEST');
-        expect(actions[1].type).toBe('FETCH_TREATMENT_FAILURE');
+        expect(actions[1].type).toBe('FETCH_FAILURE');
         expect(actions[1].payload).toEqual(error);
       });
   });

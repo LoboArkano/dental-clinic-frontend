@@ -9,9 +9,7 @@ const mockStore = configureStore([thunk]);
 describe('Test for monsters api request', () => {
   test('Fetch all treatments', () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({
-      data: {
-        results: treatmentsTestData,
-      },
+      data: treatmentsTestData,
     }));
 
     const store = mockStore([]);
