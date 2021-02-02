@@ -184,7 +184,7 @@
 .treatment {
   margin: 10px 2% 0 2%;
   padding: 15px 25px 30px;
-  width: 95%;
+  width: 95% !important;
   border: 1.7px solid #97bf0f;
   font-family: 'Mukta', Arial, Helvetica, sans-serif;
   color: #1f1d1d;
