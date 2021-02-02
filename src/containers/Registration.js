@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { checkSession, postUser } from '../actions/index';
 import '../assets/stylesheets/sign-up.css';
+import loadingImg from '../assets/images/loading.png';
 
 const Registration = props => {
   const { error, loggedInStatus, loading } = props;
@@ -41,7 +42,11 @@ const Registration = props => {
     <div className="w-85">
       {
         loading
-          ? <></>
+          ? (
+            <div className="loading d-flex w-100">
+              <img className="loading-img" src={loadingImg} alt="" />
+            </div>
+          )
           : (
             <div className="d-flex align-i-c f-dir-col show">
               {

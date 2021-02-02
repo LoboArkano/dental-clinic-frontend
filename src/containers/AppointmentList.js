@@ -5,6 +5,7 @@ import { connect, useDispatch } from 'react-redux';
 import { checkSession, logout, fetchAppointments } from '../actions/index';
 import Error from '../components/Error';
 import '../assets/stylesheets/appointment-list.css';
+import loadingImg from '../assets/images/loading.png';
 
 const AppointmentList = props => {
   const {
@@ -33,7 +34,11 @@ const AppointmentList = props => {
     <div className="w-85 vh-100">
       {
       loading
-        ? <></>
+        ? (
+          <div className="loading d-flex w-100">
+            <img className="loading-img" src={loadingImg} alt="" />
+          </div>
+        )
         : (
           <div className="d-flex f-dir-col w-100 h-100 show">
             <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>

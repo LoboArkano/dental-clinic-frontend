@@ -8,6 +8,7 @@ import {
 import AppointmentList from './AppointmentList';
 import Error from '../components/Error';
 import '../assets/stylesheets/appointment-form.css';
+import loadingImg from '../assets/images/loading.png';
 
 const AppointmentForm = props => {
   const {
@@ -64,7 +65,11 @@ const AppointmentForm = props => {
     <div className="w-85">
       {
         treatments.loading || doctors.loading
-          ? <></>
+          ? (
+            <div className="loading d-flex w-100">
+              <img className="loading-img" src={loadingImg} alt="" />
+            </div>
+          )
           : (
             <div className="d-flex f-dir-col w-100 show">
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>

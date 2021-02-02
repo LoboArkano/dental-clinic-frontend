@@ -134,6 +134,18 @@
   }
 }
 
+.loading {
+  align-items: center;
+  justify-content: center;
+
+  .loading-img {
+    margin-top: 55px;
+    height: 200px;
+    width: 200px;
+    animation: spin 2s infinite linear;
+  }
+}
+
 .show {
   animation: show 0.5s linear;
 }
@@ -141,4 +153,9 @@
 @keyframes show {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

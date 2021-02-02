@@ -5,6 +5,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { fetchTreatments, logout, checkSession } from '../actions/index';
 import Error from '../components/Error';
 import '../assets/stylesheets/treatmentList.css';
+import loadingImg from '../assets/images/loading.png';
 
 const TreatmentList = props => {
   const {
@@ -36,7 +37,11 @@ const TreatmentList = props => {
     <div className="w-85 vh-100">
       {
         loading
-          ? <></>
+          ? (
+            <div className="loading d-flex w-100">
+              <img className="loading-img" src={loadingImg} alt="" />
+            </div>
+          )
           : (
             <div className="d-flex f-dir-col w-100 h-100 show">
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>

@@ -158,6 +158,23 @@
   color: #97bf0f;
 }
 
+.loading {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loading .loading-img {
+  margin-top: 55px;
+  height: 200px;
+  width: 200px;
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
 .show {
   -webkit-animation: show 0.5s linear;
           animation: show 0.5s linear;
@@ -178,6 +195,28 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
