@@ -57,6 +57,10 @@ Run test with:
     npm test
 ```
 
+### API Url
+
+Edit file src/api/urlApi.js if you want to work with a localhoat Api.
+
 ## Author
 
 👤 **Roberto Perez Jimenez**
