@@ -59,7 +59,7 @@ Run test with:
 
 ### API Url
 
-Edit file src/api/urlApi.js if you want to work with a localhoat Api.
+Edit file src/api/urlApi.js if you want to work with a localhost Api.
 
 ## Author
 
@@ -77,7 +77,6 @@ Feel free to check the [issues page](https://github.com/LoboArkano/dental-clinic
 
 ## Acknowledgments
 
-Data provided from Open5e API.
 Elbie Moonga.
 
 ## Show your support
