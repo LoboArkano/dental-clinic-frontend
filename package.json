@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.12.10",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
@@ -43,7 +44,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.1.0",
