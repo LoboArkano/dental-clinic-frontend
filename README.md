@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Dental Clinic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dental Clinic is an App where you can make an appointment for a treatment.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+[Heroku](https://dental-clinic-react.herokuapp.com/)
 
-### `npm start`
+## Screenshot
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/33432289/106639400-8c413100-654a-11eb-9e75-8ac3b4088f94.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Built With
 
-### `npm test`
+- React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Redux
 
-### `npm run build`
+- Javascript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- HTML5
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Sass / CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To get a local copy up and running follow these simple example steps.
+```
+    git clone git@github.com:LoboArkano/dental-clinic-frontend.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- npm
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Node.js
 
-## Learn More
+### Setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Install dependencies with:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+    npm install
+```
 
-### Code Splitting
+Start app with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+    npm start
+```
 
-### Analyzing the Bundle Size
+Run test with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+    npm test
+```
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+👤 **Roberto Perez Jimenez**
 
-### Advanced Configuration
+- Github: [@LoboArkano](https://github.com/LoboArkano)
+- Twitter: [@LoboArcano92](https://twitter.com/LoboArcano92)
+- Linkedin: [linkedin](https://www.linkedin.com/in/jose-roberto-perez-jimenez/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🤝 Contributing
 
-### Deployment
+Contributions, issues and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Feel free to check the [issues page](https://github.com/LoboArkano/dental-clinic-frontend/issues).
 
-### `npm run build` fails to minify
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Data provided from Open5e API.
+Elbie Moonga.
+
+## Show your support
+
+Give a ⭐️ if you like this project!
