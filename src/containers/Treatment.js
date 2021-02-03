@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { fetchTreatment, logout, checkSession } from '../actions/index';
 import Error from '../components/Error';
 import '../assets/stylesheets/treatment.css';
-import loadingImg from '../assets/images/loading.png';
+import Loading from '../components/Loading';
 
 const Treatment = props => {
   const {
@@ -36,9 +36,7 @@ const Treatment = props => {
       {
         loading
           ? (
-            <div className="loading d-flex w-100">
-              <img className="loading-img" src={loadingImg} alt="" />
-            </div>
+            <Loading />
           )
           : (
             <section className="d-flex f-dir-col w-100 show">

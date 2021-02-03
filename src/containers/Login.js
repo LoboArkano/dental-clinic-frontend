@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { checkSession, createSession } from '../actions/index';
 import '../assets/stylesheets/login.css';
-import loadingImg from '../assets/images/loading.png';
+import Loading from '../components/Loading';
 
 const Registration = props => {
   const { error, loggedInStatus, loading } = props;
@@ -41,9 +41,7 @@ const Registration = props => {
       {
       loading
         ? (
-          <div className="loading d-flex w-100">
-            <img className="loading-img" src={loadingImg} alt="" />
-          </div>
+          <Loading />
         )
         : (
           <section className="d-flex align-i-c f-dir-col show">

@@ -8,7 +8,7 @@ import {
 import AppointmentList from './AppointmentList';
 import Error from '../components/Error';
 import '../assets/stylesheets/appointment-form.css';
-import loadingImg from '../assets/images/loading.png';
+import Loading from '../components/Loading';
 
 const AppointmentForm = props => {
   const {
@@ -66,9 +66,7 @@ const AppointmentForm = props => {
       {
         treatments.loading || doctors.loading
           ? (
-            <div className="loading d-flex w-100">
-              <img className="loading-img" src={loadingImg} alt="" />
-            </div>
+            <Loading />
           )
           : (
             <div className="d-flex f-dir-col w-100 show">
