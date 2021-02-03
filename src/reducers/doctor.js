@@ -28,7 +28,7 @@ const doctorReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        list: action.payload,
+        list: action.payload.doctors,
         error: '',
       };
     case FETCH_DOCTOR_SUCCESS:

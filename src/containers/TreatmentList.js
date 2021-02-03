@@ -45,7 +45,7 @@ const TreatmentList = props => {
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
               <section className="treatment-list d-flex f-wrap justify-cont-sa w-100">
                 {
-                  list.treatments.map(treatment => (
+                  list.map(treatment => (
                     <Link to={`/treatment/${treatment.id}`} className="treatment-card h-max deco" key={treatment.name}>
                       <article>
                         <h3 className="treatment-name">{treatment.name}</h3>
@@ -66,9 +66,11 @@ TreatmentList.propTypes = {
   error: PropTypes.string.isRequired,
   loggedInStatus: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
-  list: PropTypes.shape({
-    treatments: PropTypes.arrayOf(PropTypes.shape()),
-  }).isRequired,
+  list: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 const mapStateToProps = state => {

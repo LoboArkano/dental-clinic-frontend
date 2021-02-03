@@ -65,7 +65,19 @@ const AppointmentList = props => {
 AppointmentList.propTypes = {
   error: PropTypes.string.isRequired,
   loggedInStatus: PropTypes.bool.isRequired,
-  list: PropTypes.shape().isRequired,
+  list: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+    doctor: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    treatment: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      desc: PropTypes.string.isRequired,
+    }).isRequired,
+  })).isRequired,
   loading: PropTypes.bool.isRequired,
 };
 

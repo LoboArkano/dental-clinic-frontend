@@ -28,7 +28,7 @@ const treatmentReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        list: action.payload,
+        list: action.payload.treatments,
         error: '',
       };
     case FETCH_TREATMENT_SUCCESS:

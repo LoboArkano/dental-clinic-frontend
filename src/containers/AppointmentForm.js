@@ -82,7 +82,7 @@ const AppointmentForm = props => {
                   >
                     <option key="none" value="">Treatments</option>
                     {
-                      treatments.list.treatments.map(treatment => (
+                      treatments.list.map(treatment => (
                         <option
                           key={treatment.id}
                           value={treatment.id}
@@ -100,7 +100,7 @@ const AppointmentForm = props => {
                   >
                     <option key="none" value="">Doctors</option>
                     {
-                      doctors.list.doctors.map(doctor => (
+                      doctors.list.map(doctor => (
                         <option
                           key={doctor.id}
                           value={doctor.id}
@@ -133,8 +133,20 @@ const AppointmentForm = props => {
 AppointmentForm.propTypes = {
   error: PropTypes.string.isRequired,
   loggedInStatus: PropTypes.bool.isRequired,
-  treatments: PropTypes.shape().isRequired,
-  doctors: PropTypes.shape().isRequired,
+  treatments: PropTypes.shape({
+    list: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })).isRequired,
+    loading: PropTypes.bool.isRequired,
+  }).isRequired,
+  doctors: PropTypes.shape({
+    list: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })).isRequired,
+    loading: PropTypes.bool.isRequired,
+  }).isRequired,
   appointments: PropTypes.shape().isRequired,
 };
 
