@@ -31,15 +31,20 @@
   }
 
   .appointment-link {
-    padding: 2px 14px;
+    display: block;
+    width: 240px;
+    padding: 10px 14px;
     border: 1px solid $green;
     border-radius: 3px;
     font-size: 20px;
+    text-align: center;
     background-color: $lightGreen;
     color: $black;
 
     &:hover {
       font-weight: 700;
+      border-color: $lightGreen;
+      background-color: $white;
     }
   }
 }

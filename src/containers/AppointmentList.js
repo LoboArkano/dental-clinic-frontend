@@ -31,7 +31,7 @@ const AppointmentList = props => {
   }
 
   return (
-    <div className="w-85 vh-100">
+    <main className="w-85 vh-100">
       {
       loading
         ? (
@@ -42,10 +42,10 @@ const AppointmentList = props => {
         : (
           <div className="d-flex f-dir-col w-100 h-100 show">
             <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
-            <div className="appoint-list d-flex f-wrap w-100">
+            <section className="appoint-list d-flex f-wrap w-100">
               {
                 list.map(appointment => (
-                  <div key={appointment.id} className="appoint-card">
+                  <article key={appointment.id} className="appoint-card">
                     <h2 className="appoint-no">{`Appointment No: ${appointment.id}`}</h2>
                     <p className="">{`Date: ${new Date(appointment.date).toGMTString()}`}</p>
                     <p className="">{`Status: ${appointment.completed ? 'Completed' : 'Pending'}`}</p>
@@ -53,14 +53,14 @@ const AppointmentList = props => {
                     <p className="">{`Treatment: ${appointment.treatment.name}`}</p>
                     <p className="">{`Price: ${appointment.treatment.price} USD`}</p>
                     <p className="">{`Description: ${appointment.treatment.desc}`}</p>
-                  </div>
+                  </article>
                 ))
               }
-            </div>
+            </section>
           </div>
         )
       }
-    </div>
+    </main>
   );
 };
 

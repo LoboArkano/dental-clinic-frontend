@@ -32,7 +32,7 @@ const Treatment = props => {
   }
 
   return (
-    <div className="w-85">
+    <main className="w-85">
       {
         loading
           ? (
@@ -41,20 +41,20 @@ const Treatment = props => {
             </div>
           )
           : (
-            <div className="d-flex f-dir-col w-100 show">
+            <section className="d-flex f-dir-col w-100 show">
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
-              <div key={item.name} className="treatment w-100">
-                <h3 className="treat-name">{`Treatment: ${item.name}`}</h3>
+              <article key={item.name} className="treatment w-100">
+                <h2 className="treat-name">{`Treatment: ${item.name}`}</h2>
                 <p className="treat-price">{`Price: ${item.price}`}</p>
                 <p className="treat-desc">{`${item.desc}`}</p>
                 <Link to="/appointment-form" className="appointment-link deco">
                   Make an Appointment
                 </Link>
-              </div>
-            </div>
+              </article>
+            </section>
           )
       }
-    </div>
+    </main>
   );
 };
 

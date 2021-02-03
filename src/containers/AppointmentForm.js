@@ -73,7 +73,7 @@ const AppointmentForm = props => {
           : (
             <div className="d-flex f-dir-col w-100 show">
               <button type="button" onClick={handleLogout} className="logout-btn">Logout</button>
-              <div className="d-flex align-i-c f-dir-col">
+              <article className="d-flex align-i-c f-dir-col">
                 <p className="form-title">Make Your Appointment</p>
                 <form onSubmit={handleSubmit} className="appoint-form d-flex f-dir-col align-i-c">
                   <select
@@ -124,7 +124,7 @@ const AppointmentForm = props => {
                   </div>
                   <button type="submit" className="submit-btn">Submit</button>
                 </form>
-              </div>
+              </article>
             </div>
           )
       }

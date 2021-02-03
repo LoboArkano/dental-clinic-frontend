@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import '../assets/stylesheets/header.css';
 
 const Header = () => (
-  <div className="header-container d-flex justify-cont-sb f-dir-col">
-    <div className="nav d-flex justify-cont-sb f-dir-col">
+  <header className="header-container d-flex justify-cont-sb f-dir-col">
+    <nav className="nav d-flex justify-cont-sb f-dir-col">
       <Link to="/" className="deco">
         <h1 className="brand">Dental Clinic</h1>
       </Link>
@@ -12,7 +12,7 @@ const Header = () => (
         <Link to="/treatments" className="deco"><li className="nav-item">TREATMENTS</li></Link>
         <Link to="/appointments" className="deco"><li className="nav-item">APPOINTMENTS</li></Link>
       </ul>
-    </div>
+    </nav>
     <div className="w-100">
       <ul className="social d-flex justify-cont-sa">
         <li className="item">
@@ -29,7 +29,7 @@ const Header = () => (
         </li>
       </ul>
     </div>
-  </div>
+  </header>
 );
 
 export default Header;

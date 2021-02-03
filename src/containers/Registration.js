@@ -39,7 +39,7 @@ const Registration = props => {
   }
 
   return (
-    <div className="w-85">
+    <main className="w-85">
       {
         loading
           ? (
@@ -48,7 +48,7 @@ const Registration = props => {
             </div>
           )
           : (
-            <div className="d-flex align-i-c f-dir-col show">
+            <section className="d-flex align-i-c f-dir-col show">
               {
                 error.length
                   ? (
@@ -102,10 +102,10 @@ const Registration = props => {
               <div className="session-option">
                 <Link to="/login" className="session-link deco">I Have an Account</Link>
               </div>
-            </div>
+            </section>
           )
       }
-    </div>
+    </main>
   );
 };
 

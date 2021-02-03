@@ -251,14 +251,19 @@
 }
 
 .treatment .appointment-link {
-  padding: 2px 14px;
+  display: block;
+  width: 240px;
+  padding: 10px 14px;
   border: 1px solid #97bf0f;
   border-radius: 3px;
   font-size: 20px;
+  text-align: center;
   background-color: #c2f320d3;
   color: #1f1d1d;
 }
 
 .treatment .appointment-link:hover {
   font-weight: 700;
+  border-color: #c2f320d3;
+  background-color: #f7f2f2;
 }
