@@ -33,7 +33,7 @@ const Registration = props => {
   });
 
   if (loggedInStatus) {
-    return <Redirect to="/" />;
+    return <Redirect to="/treatments" />;
   }
 
   return (
