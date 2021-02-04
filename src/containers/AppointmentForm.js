@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 import {
-  logout, checkSession, fetchTreatments, fetchDoctors, postAppointment, submitFomReset,
+  logout, checkSession, fetchTreatments, fetchDoctors, postAppointment,
 } from '../actions/index';
-import AppointmentList from './AppointmentList';
 import Error from '../components/Error';
 import '../assets/stylesheets/appointment-form.css';
 import Loading from '../components/Loading';
 
 const AppointmentForm = props => {
   const {
-    error, loggedInStatus, treatments, doctors, appointments,
+    error, loggedInStatus, treatments, doctors,
   } = props;
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
     date: '',
     time: '',
-    treatmentID: '',
+    treatmentID: treatments.item.id ? treatments.item.id : '',
     doctorID: '',
+    submittedForm: false,
   });
 
   useEffect(() => {
@@ -43,10 +43,14 @@ const AppointmentForm = props => {
     });
   }, [state]);
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = e => {
+    e.preventDefault();
     dispatch(postAppointment(state, 'appointments'));
-    return <AppointmentList />;
-  });
+    setState({
+      ...state,
+      submittedForm: true,
+    });
+  };
 
   if (error.length) {
     return <Error />;
@@ -56,8 +60,7 @@ const AppointmentForm = props => {
     return <Redirect to="/login" />;
   }
 
-  if (appointments.submitForm) {
-    dispatch(submitFomReset());
+  if (state.submittedForm) {
     return <Redirect to="/appointments" />;
   }
 
@@ -77,6 +80,7 @@ const AppointmentForm = props => {
                   <select
                     name="treatmentID"
                     className="select"
+                    value={treatments.item.id}
                     onChange={handleChange}
                     required
                   >
@@ -138,6 +142,7 @@ AppointmentForm.propTypes = {
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
     })).isRequired,
+    item: PropTypes.shape().isRequired,
     loading: PropTypes.bool.isRequired,
   }).isRequired,
   doctors: PropTypes.shape({
@@ -147,17 +152,16 @@ AppointmentForm.propTypes = {
     })).isRequired,
     loading: PropTypes.bool.isRequired,
   }).isRequired,
-  appointments: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = state => {
   const {
-    user, treatments, doctors, appointments,
+    user, treatments, doctors,
   } = state;
   const { error, loggedInStatus } = user;
 
   return {
-    error, loggedInStatus, treatments, doctors, appointments,
+    error, loggedInStatus, treatments, doctors,
   };
 };
 
