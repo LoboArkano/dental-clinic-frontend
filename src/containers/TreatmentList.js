@@ -1,36 +1,35 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
-import { fetchTreatments, logout, checkSession } from '../actions/index';
+import { Link } from 'react-router-dom';
+import { fetchTreatments, logout } from '../actions/index';
 import Error from '../components/Error';
 import '../assets/stylesheets/treatmentList.css';
 import Loading from '../components/Loading';
 
 const TreatmentList = props => {
   const {
-    error, loggedInStatus,
+    user, history,
     loading, list,
   } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkSession('logged_in'));
-    if (loggedInStatus) {
-      dispatch(fetchTreatments('treatments'));
-    }
+    dispatch(fetchTreatments('treatments'));
   }, []);
+
+  useEffect(() => {
+    if (!user.loggedInStatus && !user.loading) {
+      history.push('/login');
+    }
+  }, [user.loggedInStatus]);
 
   const handleLogout = useCallback(() => {
     dispatch(logout('logout'));
   });
 
-  if (error.length) {
+  if (user.error.length) {
     return <Error />;
-  }
-
-  if (!loggedInStatus) {
-    return <Redirect to="/login" />;
   }
 
   return (
@@ -63,23 +62,26 @@ const TreatmentList = props => {
 };
 
 TreatmentList.propTypes = {
-  error: PropTypes.string.isRequired,
-  loggedInStatus: PropTypes.bool.isRequired,
+  user: PropTypes.shape({
+    error: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    loggedInStatus: PropTypes.bool.isRequired,
+  }).isRequired,
   loading: PropTypes.bool.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   })).isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = state => {
   const { user, treatments } = state;
-  const { error, loggedInStatus } = user;
   const { loading, list } = treatments;
 
   return {
-    error, loggedInStatus, loading, list,
+    user, loading, list,
   };
 };
 

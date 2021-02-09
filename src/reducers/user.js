@@ -37,7 +37,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         loggedInStatus: action.payload.logged_in,
-        data: {} || action.payload.user,
+        data: action.payload.user,
       };
     case LOGOUT_SUCCESS:
       return {

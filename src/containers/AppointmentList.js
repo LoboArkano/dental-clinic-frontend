@@ -1,33 +1,34 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
-import { checkSession, logout, fetchAppointments } from '../actions/index';
+import { logout, fetchAppointments } from '../actions/index';
 import Error from '../components/Error';
 import '../assets/stylesheets/appointment-list.css';
 import Loading from '../components/Loading';
 
 const AppointmentList = props => {
   const {
-    error, loggedInStatus, list, loading,
+    user, history,
+    list, loading,
   } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkSession('logged_in'));
     dispatch(fetchAppointments('appointments'));
   }, []);
+
+  useEffect(() => {
+    if (!user.loggedInStatus && !user.loading) {
+      history.push('/login');
+    }
+  }, [user.loggedInStatus]);
 
   const handleLogout = useCallback(() => {
     dispatch(logout('logout'));
   });
 
-  if (error.length) {
+  if (user.error.length) {
     return <Error />;
-  }
-
-  if (!loggedInStatus) {
-    return <Redirect to="/login" />;
   }
 
   return (
@@ -63,8 +64,11 @@ const AppointmentList = props => {
 };
 
 AppointmentList.propTypes = {
-  error: PropTypes.string.isRequired,
-  loggedInStatus: PropTypes.bool.isRequired,
+  user: PropTypes.shape({
+    error: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    loggedInStatus: PropTypes.bool.isRequired,
+  }).isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     date: PropTypes.string.isRequired,
@@ -79,15 +83,15 @@ AppointmentList.propTypes = {
     }).isRequired,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = state => {
   const { user, appointments } = state;
-  const { error, loggedInStatus } = user;
   const { list, loading } = appointments;
 
   return {
-    error, loggedInStatus, list, loading,
+    user, list, loading,
   };
 };
 

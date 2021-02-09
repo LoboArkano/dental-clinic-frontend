@@ -1,34 +1,35 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
-import { fetchTreatment, logout, checkSession } from '../actions/index';
+import { Link } from 'react-router-dom';
+import { fetchTreatment, logout } from '../actions/index';
 import Error from '../components/Error';
 import '../assets/stylesheets/treatment.css';
 import Loading from '../components/Loading';
 
 const Treatment = props => {
   const {
-    error, loggedInStatus,
+    user, history,
     loading, item, match,
   } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkSession('logged_in'));
     dispatch(fetchTreatment(`treatments/${match.params.id}`, match.params.id));
   }, []);
+
+  useEffect(() => {
+    if (!user.loggedInStatus && !user.loading) {
+      history.push('/login');
+    }
+  }, [user.loggedInStatus]);
 
   const handleLogout = useCallback(() => {
     dispatch(logout('logout'));
   });
 
-  if (error.length) {
+  if (user.error.length) {
     return <Error />;
-  }
-
-  if (!loggedInStatus) {
-    return <Redirect to="/login" />;
   }
 
   return (
@@ -57,20 +58,23 @@ const Treatment = props => {
 };
 
 Treatment.propTypes = {
-  error: PropTypes.string.isRequired,
-  loggedInStatus: PropTypes.bool.isRequired,
+  user: PropTypes.shape({
+    error: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    loggedInStatus: PropTypes.bool.isRequired,
+  }).isRequired,
   loading: PropTypes.bool.isRequired,
   item: PropTypes.shape().isRequired,
   match: PropTypes.shape().isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = state => {
   const { user, treatments } = state;
-  const { error, loggedInStatus } = user;
   const { loading, item } = treatments;
 
   return {
-    error, loggedInStatus, loading, item,
+    user, loading, item,
   };
 };
 
