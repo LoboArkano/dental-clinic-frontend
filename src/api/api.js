@@ -2,6 +2,8 @@ import axios from 'axios';
 import urlApi from './urlApi';
 import 'regenerator-runtime/runtime';
 
+const config = { withCredentials: true, headers: { 'Access-Control-Allow-Origin': '*' } };
+
 export const postUserApi = async (state, opt = '') => {
   const response = await axios.post(`${urlApi}${opt}`, {
     user: {
@@ -11,7 +13,7 @@ export const postUserApi = async (state, opt = '') => {
       password_confirmation: state.password_confirmation,
     },
   },
-  { withCredentials: true });
+  config);
 
   return response.data;
 };
@@ -23,20 +25,18 @@ export const createSessionApi = async (state, opt = '') => {
       password: state.password,
     },
   },
-  { withCredentials: true });
+  config);
 
   return response.data;
 };
 
 export const checkSessionApi = async (opt = '') => {
-  const response = await axios.get(`${urlApi}${opt}`,
-    { withCredentials: true });
+  const response = await axios.get(`${urlApi}${opt}`, config);
   return response.data;
 };
 
 export const logoutApi = async (opt = '') => {
-  const response = await axios.delete(`${urlApi}${opt}`,
-    { withCredentials: true });
+  const response = await axios.delete(`${urlApi}${opt}`, config);
 
   return response.data;
 };
