@@ -1,0 +1,30 @@
+@import 'variables', 'generic';
+
+.main {
+  background-image: url("../images/main.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .session {
+    width: 300px;
+    margin-right: 80px;
+    margin-bottom: 40px;
+
+    .session-btn {
+      padding: 10px 20px;
+      border: 3px solid $gray;
+      border-radius: 8px;
+      background-color: $white;
+      color: $darkGray;
+      font-size: 22px;
+      font-family: 'Lato', Arial, Helvetica, sans-serif;
+      font-weight: 400;
+
+      &:hover {
+        border-color: $green;
+        color: $green;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import 'variables', 'generic';
+
+.form-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.appoint-form {
+  width: 70%;
+  padding: 27px 17px;
+  border: 1.8px solid $green;
+  border-radius: 5px;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+
+  .datetime {
+    margin-bottom: 30px;
+    width: 75%;
+    font-size: 20px;
+    color: $darkGray;
+
+    .datetime-input {
+      height: 30px;
+      margin-left: 13px;
+      font-size: 15px;
+    }
+  }
+}

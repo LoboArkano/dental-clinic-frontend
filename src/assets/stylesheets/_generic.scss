@@ -1,0 +1,161 @@
+.w-100 {
+  width: 100%;
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.h-max {
+  height: max-content;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.f-dir-col {
+  flex-direction: column;
+}
+
+.align-i-fe {
+  align-items: flex-end;
+}
+
+.align-i-c {
+  align-items: center;
+}
+
+.justify-cont-c {
+  justify-content: center;
+}
+
+.justify-cont-fe {
+  justify-content: flex-end;
+}
+
+.justify-cont-sb {
+  justify-content: space-between;
+}
+
+.justify-cont-sa {
+  justify-content: space-around;
+}
+
+.d-none {
+  display: none;
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.lower-case {
+  text-transform: lowercase;
+}
+
+.deco {
+  text-decoration: none;
+}
+
+.logout-btn {
+  cursor: pointer;
+  padding: 5.5px;
+  margin: 13px 13px 13px 0;
+  align-self: flex-end;
+  border: 2px solid $darkGray;
+  border-radius: 5px;
+  background-color: $lightGray;
+  color: $darkGray;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+
+  &:hover {
+    background-color: $white;
+  }
+}
+
+.select {
+  margin-bottom: 20px;
+  width: 75%;
+  padding: 6px 10px 9px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: $darkGray;
+  background-color: $white;
+  border: 1px solid $gray;
+  appearance: none;
+  background-image: url("../images/down-arrow.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 90%;
+}
+
+.input {
+  margin-bottom: 22px;
+  padding: 8px;
+  width: 80%;
+  font-size: 19px;
+}
+
+.submit-btn {
+  cursor: pointer;
+  padding: 5px 12px;
+  border: 1.8px solid $green;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.session-option {
+  margin-top: 40px;
+
+  .session-link {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: $green;
+  }
+}
+
+.loading {
+  align-items: center;
+  justify-content: center;
+
+  .loading-img {
+    margin-top: 55px;
+    height: 200px;
+    width: 200px;
+    animation: spin 2s infinite linear;
+  }
+}
+
+.show {
+  animation: show 0.5s linear;
+}
+
+@keyframes show {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,50 @@
+@import 'variables', 'generic';
+
+.treatment {
+  margin: 10px 2% 0 2%;
+  padding: 15px 25px 30px;
+  width: 95% !important;
+  border: 1.7px solid $green;
+  font-family: 'Mukta', Arial, Helvetica, sans-serif;
+  color: $black;
+
+  .treat-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .treat-price,
+  .treat-desc {
+    font-weight: 400;
+  }
+
+  .treat-price {
+    font-size: 19px;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  .treat-desc {
+    font-size: 22px;
+    margin-bottom: 28px;
+  }
+
+  .appointment-link {
+    display: block;
+    width: 240px;
+    padding: 10px 14px;
+    border: 1px solid $green;
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
+    background-color: $lightGreen;
+    color: $black;
+
+    &:hover {
+      font-weight: 700;
+      border-color: $lightGreen;
+      background-color: $white;
+    }
+  }
+}
