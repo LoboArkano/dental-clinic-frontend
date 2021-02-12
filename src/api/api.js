@@ -2,9 +2,7 @@ import axios from 'axios';
 import urlApi from './urlApi';
 import 'regenerator-runtime/runtime';
 
-const config = {
-  withCredentials: true,
-};
+const config = { withCredentials: true, headers: { 'Access-Control-Allow-Origin': '*' } };
 
 export const postUserApi = async (state, opt = '') => {
   const response = await axios.post(`${urlApi}${opt}`, {
